@@ -1,114 +1,100 @@
-import { Link, NavLink } from "react-router-dom";
-import { MdPages, MdNewReleases } from 'react-icons/md';
-import { BiDetail } from 'react-icons/bi';
-import { PiSignInBold } from 'react-icons/pi';
-import { SiGnuprivacyguard } from 'react-icons/si';
-
+import { Link} from "react-router-dom";
+// import { MdPages, MdNewReleases } from 'react-icons/md';
+// import { BiDetail } from 'react-icons/bi';
+// import { PiSignInBold } from 'react-icons/pi';
+// import { SiGnuprivacyguard } from 'react-icons/si';
+import logo from '../../../assets/cleaning.png'
+import { useEffect, useState } from "react";
 
 
 const Nav = () => {
-    
+    // change nav color when scrolling 
+    const [color, setColor] = useState(false);
+    const changeColor = () => {
+        if (window.scrollY >= window.innerHeight * 0.2) {
+            setColor(true);
+        } else {
+            setColor(false);
+        }
+    };
+    useEffect(() => {
+        window.addEventListener("scroll", changeColor);
+
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            window.removeEventListener("scroll", changeColor);
+        };
+    }, []);
+  
     return (
-       
-        <div className="max-w-6xl mx-auto bg-white h-24 items-center flex justify-between ">
-            <div>
-                <img src="https://i.imgur.com/CYiikTE.png" alt=""  className="w-24 ml-4"/>
-            </div>
-           
-            <div className="text-end flex items-center justify-between gap-2 ">
-                <button className="text-white bg-[#6ebe3b] hover:bg-[#58982F] focus:ring-2 focus:ring-green-600 font-medium rounded-lg text-sm px-5 
-                py-2 mr-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-green-800" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-                    Menu
-                </button>
-                <Link to='/login'><button className=" bg-slate-600 hover:bg-slate-800 text-white font-medium rounded-lg text-sm px-5  focus:ring-2 focus:ring-black
-                py-2 mr-2  ">Login</button></Link>
-            </div>
-            <div id="drawer-navigation" className="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-gradient-to-r from-gray-100 to-stone-300 w-64 dark:bg-gray-800" tabIndex="-1" aria-labelledby="drawer-navigation-label">
+        <nav className={`${color ? "bg-teal-200/20 transform scale-105 " : "bg-white transform scale-100"
+            } sticky top-0 z-30 border-gray-200 dark:bg-gray-900 h-[80px] transition-all duration-300 ease-in-out`}>
+            <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
+                <Link to='home' href={logo} className="flex items-center">
+                    <img src={logo} className="h-10 mr-1" alt="Flowbite Logo" />
+                    <span className="self-center text-2xl text-blue-700  font-semibold whitespace-nowrap dark:text-white">TidyAid</span>
+                </Link>
+                <div className="flex items-center md:order-2">
+                    <button type="button" className="flex mr-3 text-sm 
+                    bg-[#afede3] rounded-md px-2 py-1 md:mr-0 shadow-xl text-blue-700 font-semibold focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                        <span className="sr-only">Open user menu</span>
+                        {/* <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo" /> */}
+                        <p>Dashborad</p>
+                    </button>
 
-                <h5 id="drawer-navigation-label" className="text-base  text-[#58982F] font-bold uppercase ">Menu</h5>
-                <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" className="text-[#58982F] bg-gray-200 bg-transparent hover:bg-lime-800 hover:text-white rounded-lg text-sm w-8 h-8 
-                absolute top-2.5 right-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
-                    <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span className="sr-only">Close menu</span>
-                </button>
-                <div className="py-4 overflow-y-auto">
-                    <ul className="space-y-2 font-medium">
-                        <li>
-                            <NavLink to='home' href="#" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <svg className="w-5 h-5 text-[#58982F] transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                                    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-                                </svg>
-                                <span className="ml-3 group-hover:text-[#58982F] font-semibold">Home</span>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <button type="button" className="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                                <MdPages className="text-2xl  text-[#58982F] group-hover:text-gray-900 "/>
-                                <span className="flex-1 ml-3 font-semibold text-left whitespace-nowrap group-hover:text-[#58982F]">Pages</span>
-                                <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-                                </svg>
-                            </button>
-                            <ul id="dropdown-example" className="hidden py-2 space-y-2">
-                                <li>
-                                    <NavLink to='/' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-lime-100 dark:text-white font-semibold dark:hover:bg-gray-700">Recipe Search</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-lime-100 font-semibold dark:text-white dark:hover:bg-gray-700">Elements</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-lime-100 dark:text-white dark:hover:bg-gray-700 font-semibold ">FAQs</NavLink>
-                                </li>
-                            </ul>
-                        </li>
-                       
-                        <li>
-                            <NavLink href="#" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-lime-50 dark:hover:bg-gray-700 group">
-                                <BiDetail className="text-2xl text-[#58982F] group-hover:text-gray-900 " />
-                                <span className="flex-1 ml-3 whitespace-nowrap group-hover:text-[#58982F] font-semibold">Recipe Detail</span>
-                                
-                            </NavLink>
-                        </li>
-                        
-                        <li>
-                            <NavLink to='contact/recent' className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <MdNewReleases className="text-2xl text-[#58982F] group-hover:text-gray-900" />
-                                
-                                <span className="flex-1 ml-3 whitespace-nowrap group-hover:text-[#58982F] font-semibold">Recent Recipes</span>
-                            </NavLink>
-                        </li>
+                    {/*User Dropdown menu  */}
+                    <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                        <div className="px-4 py-3">
+                            <span className="block text-sm text-gray-900 dark:text-white">User name</span>
+                            <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">user.eamil@.com</span>
+                        </div>
+                        <ul className="py-2" aria-labelledby="user-menu-button">
+                            <li>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                            </li>
+                        </ul>
+                    </div>
 
+                    <button data-collapse-toggle="navbar-user" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
+                        <span className="sr-only">Open main menu</span>
+                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                </div>
+                <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
-                            <NavLink  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <MdNewReleases className="text-2xl text-[#58982F] group-hover:text-gray-900" />
-                                
-                                <span className="flex-1 ml-3 whitespace-nowrap group-hover:text-[#58982F] font-semibold">Blog</span>
-                            </NavLink>
+                            <Link to='home' className="block py-2 pl-3 pr-4 font-semibold text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</Link>
                         </li>
                         <li>
-                            <NavLink to='/login' className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <PiSignInBold className="text-2xl text-[#58982F] group-hover:text-gray-900" />
-                                
-                                <span className="flex-1 ml-3 whitespace-nowrap group-hover:text-[#58982F] font-semibold">Login</span>
-                            </NavLink>
+                            <Link to='services' href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 font-semibold dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</Link>
                         </li>
-
                         <li>
-                            <NavLink to='/register' className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                <SiGnuprivacyguard className="text-xl text-[#58982F] group-hover:text-gray-900" />
-                                
-                                <span className="flex-1 ml-3 whitespace-nowrap group-hover:text-[#58982F] font-semibold">Sign Up</span>
-                            </NavLink>
+                            <Link to='/register' className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 font-semibold md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sign up</Link>
                         </li>
-                       
+                        {/* <li>
+                            <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
+                        </li> */}
+                        {/* <li>
+                            <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                        </li> */}
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
+
     );
 };
 
 export default Nav;
+

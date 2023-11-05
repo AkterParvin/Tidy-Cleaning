@@ -4,9 +4,8 @@ import Error from "./Error";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/LOgin";
 import Register from "../Pages/Register/Register";
-
-import Recent from "../Pages/RecentRecipe/Recent";
 import Contact from "../Pages/Contact/Contact";
+import Services from "../Pages/Services/Services";
 
 
 
@@ -21,8 +20,8 @@ const Routes = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: 'recent',
-                element: <Recent />
+                path: 'services',
+                element: <Services/>
             }
             ,
             {

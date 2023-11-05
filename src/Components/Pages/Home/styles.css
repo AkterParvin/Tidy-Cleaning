@@ -1,9 +1,10 @@
-#app { height: 100% }
+#app {
+  height: 100%;
+}
 html,
 body {
   position: relative;
   height: 100%;
-  background-color: white;
 }
 
 body {
@@ -15,25 +16,25 @@ body {
   padding: 0;
 }
 
-/* .swiper {
- ;
-  ;
-} */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
 
 .swiper-slide {
-  background-position:top;
-  background-size:cover;
-   object-fit: fill;
- width:90%;
-  margin: auto;
-  height: 60vh;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
 
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-slide img {
-  display:block;
-  width:100%;
-  height: 100%;
-  object-position: center;
-  object-fit: fill;
+  display: block;
+  width: 100%;
+  height:80vh;
+  object-fit: cover;
 }

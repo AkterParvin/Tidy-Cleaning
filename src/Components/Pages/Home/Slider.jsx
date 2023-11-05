@@ -1,5 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import img1 from '../../../assets/slider1 (1).jpg';
+import img2 from '../../../assets/slider2.jpg';
+import img3 from '../../../assets/slider3 (1).jpg';
+import img4 from '../../../assets/slider4.jpg';
+import img5 from '../../../assets/slider5.jpg';
+import img6 from '../../../assets/slider6.jpg';
+import img7 from '../../../assets/slider7.jpg';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -9,50 +15,60 @@ import 'swiper/css/pagination';
 import './styles.css';
 
 // import required modules
-import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+// import { EffectFade, Navigation, Pagination } from 'swiper/modules';
+
+import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 const Slider = () => {
     return (
         <div>
+
             <Swiper
                 spaceBetween={30}
-                effect={'fade'}
-                navigation={true}
-                pagination={{
-                    clickable: true,
+                centeredSlides={true}
+                speed={800} 
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+
                 }}
-                modules={[EffectFade, Navigation, Pagination]}
+                effect={'fade'}
+                // pagination={{
+                //     clickable: true,
+                // }}
+                // navigation={true}
+                modules={[Autoplay, Pagination, Navigation, EffectFade]}
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/16vyba7.jpg" />
+                    <img src={img1} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/vPTwnrC.jpg" />
+                    <img src={img2} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/40yv50l.jpg" />
+                    <img src={img3} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/VXlowuL.jpg" />
+                    <img src={img4} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/I123GtN.jpg" />
+                    <img src={img5} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/zBzHz81.jpg" />
+                    <img src={img6} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/fQNXorg.jpg" />
+                    <img src={img6} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/HxQFShY.jpg" />
+                    <img src={img7} />
+                </SwiperSlide>
+                {/* <SwiperSlide>
+                    <img src={img1} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="https://i.imgur.com/1blmTqj.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://i.imgur.com/dJIyyoV.jpg" />
-                </SwiperSlide>
+                    <img src={img1} />
+                </SwiperSlide> */}
             </Swiper>
 
 

@@ -5,8 +5,9 @@ import Nav from "../Pages/Home/Nav";
 
 const Root = () => {
     return (
-        <div>
+        <div >
             <Nav/>
+            
           
             <div className="max-w-6xl  mx-auto">
                 <Outlet></Outlet>

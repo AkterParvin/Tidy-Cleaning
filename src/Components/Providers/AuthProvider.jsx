@@ -1,68 +1,70 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import app from '../../../firebase.config';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { useQuery } from "@tanstack/react-query";
+import PropTypes from 'prop-types';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
 
 
-// const userStatusQuery =() => {
-//     const user =  onAuthStateChanged(auth);
-//     return user;
-// }
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState(null);
+    const [newUser, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // create a query key for user status 
-    // const userStatusKey = 'userStatus';
-
-    // use TanStackQuery to get the user status 
-    // const { data: currentUser } = useQuery(userStatusKey, userStatusQuery);
-
-    // for creating a new User 
+    // for create a new user 
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
-    };
-    // Login the User
+    }
+
+
+    // for login registered user 
     const loginUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
-    // logOut Function 
+    // logOut function 
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
-    };
-
+    }
     // on AuthState Change
-
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth,
+            currentUser => {
+                console.log("showing User status from Auth-useEffect", currentUser);
+                setUser(currentUser);
+                setLoading(false);
+            })
+        return () => {
+            unSubscribe();
+        }
+    }, []);
     
 
 
 
     // goggleSignInProcess 
-    const googleProvider = new GoogleAuthProvider();
-    const googleSignIn = () => {
+    const googleProvider = new GoogleAuthProvider()
+    const googleLogin = () => {
         setLoading(true);
-        signInWithPopup(auth,googleProvider)
+        signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = (result.user);
                 setUser(user);
                 console.log(user);
+
             })
             .catch(error => {
-                console.log('error', error.message);
-        })
+                console.log('error', error.message)
+            })
     }
 
 
     const authInfo = {
-        createUser,  logOut, loginUser, googleSignIn, loading 
+        newUser,createUser, logOut, loginUser, googleLogin, loading 
     }
     return (
         <AuthContext.Provider value={authInfo}>
@@ -71,4 +73,8 @@ const AuthProvider = ({children}) => {
     );
 };
 
+
+AuthProvider.propTypes = {
+    children: PropTypes.node
+}
 export default AuthProvider;
