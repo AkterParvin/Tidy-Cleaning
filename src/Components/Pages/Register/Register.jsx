@@ -43,25 +43,26 @@ const Register = () => {
                 e.target.reset();
                 setUserCreate("user created");
                 console.log(result.user);
-                fetch('http://localhost:3000/users', {
-                    method: "POST",
-                    headers: {
-                        'content-type': "application/json"
-                    },
-                    body: JSON.stringify(result.user),
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        if (data.insertedId) {
-                            form.reset()
-                            Swal.fire(
-                                'Sign Up Successfully!',
-                                'You clicked the button!',
-                                'success'
-                            )
-                        }
-                    })
+                if (result.user) {
+                    form.reset()
+                    Swal.fire(
+                        'Sign Up Successfull!',
+                        'You clicked the button!',
+                        'success'
+                    )
+                }
+                // fetch('http://localhost:3000/users', {
+                //     method: "POST",
+                //     headers: {
+                //         'content-type': "application/json"
+                //     },
+                //     body: JSON.stringify(result.user),
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         console.log(data)
+                        
+                //     })
 
 
             })

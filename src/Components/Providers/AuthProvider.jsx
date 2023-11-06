@@ -3,12 +3,13 @@ import { createContext, useEffect, useState } from "react";
 import app from '../../../firebase.config';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import PropTypes from 'prop-types';
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [newUser, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -28,7 +29,20 @@ const AuthProvider = ({children}) => {
     // logOut function 
     const logOut = () => {
         setLoading(true);
-        return signOut(auth);
+        return (
+            signOut(auth)
+                .then(() => {
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "User Logged Out",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                })
+                .catch(error => console.log(error))
+        )
     }
     // on AuthState Change
     useEffect(() => {
@@ -42,7 +56,7 @@ const AuthProvider = ({children}) => {
             unSubscribe();
         }
     }, []);
-    
+
 
 
 
@@ -64,7 +78,7 @@ const AuthProvider = ({children}) => {
 
 
     const authInfo = {
-        newUser,createUser, logOut, loginUser, googleLogin, loading 
+        newUser, createUser, logOut, loginUser, googleLogin, loading
     }
     return (
         <AuthContext.Provider value={authInfo}>

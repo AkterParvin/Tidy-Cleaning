@@ -1,7 +1,7 @@
-import { Link, useLoaderData } from "react-router-dom";
+/* eslint-disable no-unused-vars */
+import {  useLoaderData } from "react-router-dom";
 import { AiTwotoneStar } from "react-icons/ai";
 import { BiSolidLocationPlus } from "react-icons/bi";
-import { useState } from "react";
 import BookService from "../Booking/BookService";
 
 
@@ -12,14 +12,8 @@ const ServiceDetails = () => {
     const serviceDetail = useLoaderData()
     console.log(serviceDetail);
     const { service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,
-        provider_email, _id } = serviceDetail;
+        provider_email, } = serviceDetail;
 
-    
-    // const [isModalOpen, setIsModalOpen] = useState(false);
-
-    // const handleBookService = () => {
-    //     setIsModalOpen(true);
-    // }
 
     //     background - image: linear - gradient(
     //         180deg,
@@ -74,38 +68,24 @@ const ServiceDetails = () => {
                         </div>
                         <div className="flex items-center justify-between">
                             <div >
-                                {/* <button
-                                    onClick={handleBookService}
-                                    className=" text-center btn btn-outline btn-xs shadow-lg ">
-                                    Book Service
-                                </button>
-                                {
-                                    isModalOpen && (
-                                        <BookService
-                                            serviceDetail={serviceDetail}
-                                            onClose={() => setIsModalOpen(false)}
-                                        ></BookService>
-                                    )
-                                } */}
-
                                 <div>
-
-                                    <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Service</button>
+                                    <button className="btn" 
+                                    onClick={() => document.getElementById('my_modal_5').showModal()}>Book Service</button>
                                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                                         <div className="modal-box">
-                                            <h3 className="font-bold text-lg">Hello!</h3>
+                                            <h3 className="font-bold text-lg text-center text-teal-700 mb-2">Book Now!</h3>
                                             <BookService
-                                            serviceDetail={serviceDetail}
+                                                serviceDetail={serviceDetail}
                                             ></BookService>
                                             <div className="modal-action">
                                                 <form method="dialog">
 
-                                                    <button className="btn">Close</button>
+                                                    <button className="btn btn-xs btn-success">Close</button>
                                                 </form>
                                             </div>
                                         </div>
                                     </dialog>
-                                </div> 
+                                </div>
 
                             </div>
                             <div className="flex space-x-8 text-sm items-center p-1  dark:text-gray-400">
