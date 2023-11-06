@@ -1,6 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { AiTwotoneStar } from "react-icons/ai";
 import { BiSolidLocationPlus } from "react-icons/bi";
+import { useState } from "react";
+import BookService from "../Booking/BookService";
 
 
 
@@ -12,20 +14,27 @@ const ServiceDetails = () => {
     const { service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,
         provider_email, _id } = serviceDetail;
 
-//     background - image: linear - gradient(
-//         180deg,
-//         hsl(164deg 7 % 29 %) 0 %,
-//         hsl(162deg 5 % 41 %) 14 %,
-//         hsl(160deg 4 % 53 %) 27 %,
-//         hsl(158deg 5 % 65 %) 39 %,
-//         hsl(156deg 7 % 78 %) 50 %,
-//         hsl(154deg 17 % 92 %) 59 %,
-//         hsl(159deg 37 % 91 %) 68 %,
-//         hsl(163deg 54 % 90 %) 76 %,
-//         hsl(167deg 67 % 88 %) 83 %,
-//         hsl(170deg 78 % 87 %) 91 %,
-//         hsl(174deg 87 % 85 %) 100 %
-// );
+    
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // const handleBookService = () => {
+    //     setIsModalOpen(true);
+    // }
+
+    //     background - image: linear - gradient(
+    //         180deg,
+    //         hsl(164deg 7 % 29 %) 0 %,
+    //         hsl(162deg 5 % 41 %) 14 %,
+    //         hsl(160deg 4 % 53 %) 27 %,
+    //         hsl(158deg 5 % 65 %) 39 %,
+    //         hsl(156deg 7 % 78 %) 50 %,
+    //         hsl(154deg 17 % 92 %) 59 %,
+    //         hsl(159deg 37 % 91 %) 68 %,
+    //         hsl(163deg 54 % 90 %) 76 %,
+    //         hsl(167deg 67 % 88 %) 83 %,
+    //         hsl(170deg 78 % 87 %) 91 %,
+    //         hsl(174deg 87 % 85 %) 100 %
+    // );
 
 
 
@@ -41,7 +50,7 @@ const ServiceDetails = () => {
                         <div className='flex flex-col justify-center items-start '>
                             <h2 className="text-xl pl-2 font-bold text-gray-700">Service Provider Info:</h2>
                             <div className="flex items-center space-x-4">
-                                
+
                                 <img alt="" src={provider_img} className="object-cover w-16 h-16 rounded-full shadow dark:bg-gray-500" />
                                 <div className="flex flex-col space-y-1">
                                     <a rel="noopener noreferrer" href="#" className="text-sm text-gray-700 font-semibold">Provider Name :
@@ -58,29 +67,58 @@ const ServiceDetails = () => {
 
                         <div className="space-y-4">
                             <img src={service_img} alt="" className=" object-cover object-center mx-auto w-full rounded shadow-md mb-8 h-36 sm:h-96 dark:bg-gray-500" />
-                           
+
                             <h2 className="mb-1 text-xl text-gray-800 font-semibold">{title}</h2>
                             <h1 className="mb-1 text-base text-gray-800 font-semibold">Service Name: <span className="mb-1 text-base text-emerald-800 font-semibold">{service_name} </span></h1>
                             <p className="text-sm mt-2 text-gray-700 dark:text-gray-400">{description}</p>
                         </div>
                         <div className="flex items-center justify-between">
                             <div >
-                                <Link to={`/bookService/${_id}`}>  <button className=" text-center btn btn-outline btn-xs shadow-lg ">
-                                   Book Service
-                                </button></Link>
+                                {/* <button
+                                    onClick={handleBookService}
+                                    className=" text-center btn btn-outline btn-xs shadow-lg ">
+                                    Book Service
+                                </button>
+                                {
+                                    isModalOpen && (
+                                        <BookService
+                                            serviceDetail={serviceDetail}
+                                            onClose={() => setIsModalOpen(false)}
+                                        ></BookService>
+                                    )
+                                } */}
+
+                                <div>
+
+                                    <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Service</button>
+                                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                                        <div className="modal-box">
+                                            <h3 className="font-bold text-lg">Hello!</h3>
+                                            <BookService
+                                            serviceDetail={serviceDetail}
+                                            ></BookService>
+                                            <div className="modal-action">
+                                                <form method="dialog">
+
+                                                    <button className="btn">Close</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </dialog>
+                                </div> 
 
                             </div>
                             <div className="flex space-x-8 text-sm items-center p-1  dark:text-gray-400">
 
                                 <div className="flex items-center">
-                                    <p className='text-2xl text-gray-800'><BiSolidLocationPlus/></p>
+                                    <p className='text-2xl text-gray-800'><BiSolidLocationPlus /></p>
                                     <span className='text-sky-700 ml-1 font-semibold'>{area}</span>
-                               </div>
+                                </div>
                                 <div className="flex gap-1">
                                     <p className='font-bold text-gray-800'>Price:</p>
                                     <span className='text-sky-700 font-semibold'>{price}</span>
-                               </div>
-                                
+                                </div>
+
 
                             </div>
                             {/* <div className="flex space-x-2 text-sm items-center p-1  dark:text-gray-400">
@@ -91,7 +129,7 @@ const ServiceDetails = () => {
                             </div> */}
                         </div>
                     </div>
-                   
+
 
                 </div>
 
@@ -204,6 +242,8 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
+
+
             <section className="dark:bg-gray-800 max-w-6xl mx-auto dark:text-gray-100">
                 <div className="container flex flex-col-reverse mx-auto lg:flex-row">
 
@@ -215,10 +255,10 @@ const ServiceDetails = () => {
                     <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-violet-400 dark:text-gray-900">
                         <h1 className="text-3xl font-extrabold text-teal-600 font-serif">Service Overview </h1>
                         <div className="flex space-x-2 sm:space-x-4">
-                            
+
                             <div className="space-y-2">
-                                <p className="text-lg font-medium leadi">{service_overview.slice(0,98)}</p>
-                                
+                                <p className="text-lg font-medium leadi">{service_overview.slice(0, 98)}</p>
+
                             </div>
                         </div>
                         <div className="flex space-x-2 sm:space-x-4">
@@ -226,8 +266,8 @@ const ServiceDetails = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                             </svg>
                             <div className="space-y-2">
-                                <p className="text-base font-medium leadi">{service_overview.slice(99,183)}</p>
-                                
+                                <p className="text-base font-medium leadi">{service_overview.slice(99, 183)}</p>
+
                             </div>
                         </div>
                         <div className="flex space-x-2 sm:space-x-4">
@@ -236,7 +276,7 @@ const ServiceDetails = () => {
                             </svg>
                             <div className="space-y-2">
                                 <p className="text-base font-medium leadi">{service_overview.slice(183, 278)}</p>
-                                
+
                             </div>
                         </div>
                         <div className="flex space-x-2 sm:space-x-4">
@@ -245,7 +285,7 @@ const ServiceDetails = () => {
                             </svg>
                             <div className="space-y-2">
                                 <p className="text-base font-medium leadi">{service_overview.slice(279, 375)}</p>
-                                
+
                             </div>
                         </div>
                     </div>

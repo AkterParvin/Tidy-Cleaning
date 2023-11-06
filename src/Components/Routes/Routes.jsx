@@ -11,6 +11,7 @@ import AddService from "../Pages/AddService/AddService";
 import Schedules from "../Pages/Schedules/Schedules";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import AllServices from "../Pages/Services/AllServices";
+import BookService from "../Pages/Booking/BookService";
 
 // #cdfcf3
 
@@ -59,6 +60,10 @@ const Routes = createBrowserRouter([
 
             },
         ]
+    },
+    {
+        path:"/bookService/:id",
+        element:<BookService/>
     },
    
     {
