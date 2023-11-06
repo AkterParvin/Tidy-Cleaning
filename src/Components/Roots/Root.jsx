@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Nav from "../Pages/Home/Nav";
+import Footer from "../Pages/Footer/Footer";
 // import Banner from "../Pages/Home/Banner";
 
 
@@ -12,6 +13,7 @@ const Root = () => {
             <div className="max-w-6xl  mx-auto">
                 <Outlet></Outlet>
             </div>
+            <Footer/>
         </div>
     );
 };

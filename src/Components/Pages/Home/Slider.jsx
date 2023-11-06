@@ -1,11 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import img1 from '../../../assets/slider1 (1).jpg';
-import img2 from '../../../assets/slider2.jpg';
-import img3 from '../../../assets/slider3 (1).jpg';
-import img4 from '../../../assets/slider4.jpg';
-import img5 from '../../../assets/slider5.jpg';
-import img6 from '../../../assets/slider6.jpg';
-import img7 from '../../../assets/slider7.jpg';
+import img2 from "../../../assets/1.png";
+import img3 from '../../../assets/2.png';
+import img4 from '../../../assets/3.png';
+import img5 from '../../../assets/4.png';
+import img6 from '../../../assets/5.png';
+import img7 from '../../../assets/6.png';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -63,12 +63,7 @@ const Slider = () => {
                 <SwiperSlide>
                     <img src={img7} />
                 </SwiperSlide>
-                {/* <SwiperSlide>
-                    <img src={img1} />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={img1} />
-                </SwiperSlide> */}
+               
             </Swiper>
 
 

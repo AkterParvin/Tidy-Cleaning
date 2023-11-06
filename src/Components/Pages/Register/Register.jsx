@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
-import bg from '../../../assets/signup.jpg';
+
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -37,8 +37,8 @@ const Register = () => {
             setError("Email is not valid");
             return;
         }
-        
-        createUser(email,password)
+
+        createUser(email, password)
             .then(result => {
                 e.target.reset();
                 setUserCreate("user created");
@@ -54,7 +54,12 @@ const Register = () => {
                     .then(data => {
                         console.log(data)
                         if (data.insertedId) {
-                            alert('user created!!!')
+                            form.reset()
+                            Swal.fire(
+                                'Sign Up Successfully!',
+                                'You clicked the button!',
+                                'success'
+                            )
                         }
                     })
 
@@ -64,7 +69,7 @@ const Register = () => {
                 console.log(error.message);
                 setError(error.message);
             })
-        navigate('home');
+        navigate('/');
 
 
 
@@ -74,7 +79,7 @@ const Register = () => {
     return (
 
         <div className="relative h-screen flex justify-center items-center flex-col">
-            <img src={bg} alt="" className="object-fill h-full w-full absolute overflow-hidden  " />
+            <img src='https://i.imgur.com/gTwylLS.jpg' alt="" className="object-fill h-full w-full absolute overflow-hidden  " />
 
 
             <div className="w-[70%] mx-auto md:w-[30%] mt-10 md:my-16 z-10 bg-teal-200/40 rounded-lg shadow-xl">
@@ -109,7 +114,7 @@ const Register = () => {
                                 type="text"
                                 name='name'
                                 placeholder="Name"
-                                className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" />
+                                className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg focus:border-sky-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-sky-300" />
                         </div>
                         <div className="mt-2">
                             <label className="block mb-1 text-sm font-semibold text-[#0073f7] dark:text-gray-200" htmlFor="LoggingEmailAddress">Email </label>
@@ -118,7 +123,7 @@ const Register = () => {
                                 type="email"
                                 name='email'
                                 placeholder="Email"
-                                className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                                className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-sky-400 focus:ring-opacity-40 dark:focus:border-sky-300 focus:outline-none focus:ring focus:ring-sky-300" />
                         </div>
 
                         <div className="mt-2 ">
@@ -132,7 +137,7 @@ const Register = () => {
                                     type={showPass ? 'text' : 'password'}
                                     name="password"
                                     placeholder='Password'
-                                    className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" />
+                                    className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-sky-400 focus:ring-opacity-40 dark:focus:border-sky-300 focus:outline-none focus:ring focus:ring-sky-300" />
 
                                 <span className="absolute right-[5%] text-xl text-[#0073f7]"
                                     onClick={() => setShowPass(!showPass)}>
