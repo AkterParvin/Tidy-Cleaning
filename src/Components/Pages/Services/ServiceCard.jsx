@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const ServiceCard = ({ item }) => {
     
     const { service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,_id } = item;
-    console.log(_id);
+   
     return (
         <div>
             <div className="flex flex-col max-w-lg p-6 

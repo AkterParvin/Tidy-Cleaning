@@ -17,7 +17,7 @@ const ServiceBanner = () => {
     };
     return (
         <div className="relative ">
-            <div className=' flex flex-col justify-center items-center  '>
+            <div className=' flex flex-col justify-center items-center '>
                 <div
                     className="relative group overflow-hidden"
                     onMouseEnter={handleMouseEnter}

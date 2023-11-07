@@ -12,6 +12,7 @@ import Schedules from "../Pages/Schedules/Schedules";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import AllServices from "../Pages/Services/AllServices";
 import BookService from "../Pages/Booking/BookService";
+import PrivateRoute from "./PrivateRoute";
 
 // #cdfcf3
 
@@ -27,31 +28,29 @@ const Routes = createBrowserRouter([
             },
             {
                 path: 'services',
-                element: <Services/>
+                element: <Services />
             }
             ,
             {
                 path: '/allservices',
-                element: <AllServices/>
+                element: <AllServices />
             },
             {
                 path: '/servicedetail/:id',
-                element: <ServiceDetails/>,
-                loader: ({params}) => fetch(`http://localhost:3000/services/${params.id}`)
+                element: <ServiceDetails />,
+                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
             },
             {
                 path: '/my-services',
-                element:<MyServices/>
+                element: <PrivateRoute>
+                    <MyServices />
+                </PrivateRoute>,
 
             },
-            {
-                path: '/add-service',
-                element:<AddService/>
-
-            },
+           
             {
                 path: '/schedules',
-                element:<Schedules/>
+                element: <Schedules />
 
             },
             {
@@ -62,13 +61,18 @@ const Routes = createBrowserRouter([
         ]
     },
     {
-        path:"/bookService/:id",
-        element:<BookService/>
+        path: "/bookService/:id",
+        element: <BookService />
     },
-   
+
     {
         path: '/login',
         element: <Login />
+    },
+    {
+        path: '/add-service',
+        element: <AddService />
+
     },
     {
         path: '/register',
