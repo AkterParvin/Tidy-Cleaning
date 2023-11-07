@@ -1,8 +1,18 @@
 import logo from '../../../assets/cleaning.png';
 
 const Footer = () => {
+    const backgroundImageUrl = 'https://i.imgur.com/OoQyVxF.png';
+
+    const containerStyle = {
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: '45vh',
+        width: '100%',
+    };
     return (
-        <footer className="px-4 divide-y bg-teal-100 dark:bg-gray-800 dark:text-gray-100">
+        <footer style={containerStyle} className="px-4 divide-y bg-gray-300 dark:bg-gray-800 dark:text-gray-100">
             <div className="max-w-6xl flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">

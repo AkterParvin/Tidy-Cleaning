@@ -13,7 +13,7 @@ const PrivateRoute = ({ children }) => {
 
     }
     if (newUser) {
-        return children;
+        return children ;
     }
     return (
 
@@ -23,6 +23,6 @@ const PrivateRoute = ({ children }) => {
 };
 
 PrivateRoute.propTypes = {
-    children: PropTypes.object
-}
+    children: PropTypes.node.isRequired, 
+};
 export default PrivateRoute;

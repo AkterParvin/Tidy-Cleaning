@@ -1,19 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { FcDeleteDatabase } from "react-icons/fc";
-import { MdUpdate } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 import PropTypes from 'prop-types';
 
-const BookingDetail = ({ item,handleDelete, handleUpdate }) => {
+const BookingDetail = ({ item,handleDelete}) => {
     const { service_name, service_Image, provider_email, price, instruction, user_name, email, date, service_id, _id, status } = item;
 
-
-
-
-
-
     return (
-        <div>
-            <li className="flex flex-col py-6 sm:flex-row sm:justify-between ">
+        <div className="w-[60%] mx-auto">
+            <li className="flex flex-col px-5 shadow-lg rounded-lg py-6 sm:flex-row sm:justify-between bg-gray-100">
                 <div className="flex w-full space-x-2 sm:space-x-6">
                   
                     <img className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500" src={service_Image} alt="Polaroid camera" />
@@ -37,9 +32,9 @@ const BookingDetail = ({ item,handleDelete, handleUpdate }) => {
                             </button>
                             {status === "confirm" ? <span className='text-primary font-bold'>Confirmed</span>:
                             
-                            <button onClick={() => handleUpdate(_id)} type="button" className="flex items-center bg-sky-100 border shadow-xl hover:bg-emerald-100 hover:border-emerald-500 border-sky-500 rounded px-2 py-1 pl-0 space-x-1">
-                                <MdUpdate className="text-xl text-green-700"></MdUpdate>
-                                <span>Update Service</span>
+                            <button  type="button" className="flex items-center bg-sky-100 border shadow-xl hover:bg-emerald-100 hover:border-emerald-500 border-sky-500 rounded px-2 py-1 pl-0 space-x-1">
+                                    <MdFavorite className="text-xl text-rose-300"></MdFavorite>
+                                <span>Favorite</span>
                                 </button>}
                         </div>
                     </div>

@@ -6,13 +6,14 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Contact from "../Pages/Contact/Contact";
 import Services from "../Pages/Services/Services";
-import MyServices from "../Pages/My-Services/MyServices";
+
 import AddService from "../Pages/AddService/AddService";
 import Schedules from "../Pages/Schedules/Schedules";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import AllServices from "../Pages/Services/AllServices";
 import BookService from "../Pages/Booking/BookService";
 import PrivateRoute from "./PrivateRoute";
+import ManageService from "../Pages/My-Services/ManageService";
 
 // #cdfcf3
 
@@ -37,25 +38,25 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/servicedetail/:id',
-                element: <ServiceDetails />,
+                element: <PrivateRoute> <ServiceDetails /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
             },
             {
-                path: '/my-services',
+                path: '/manageservice',
                 element: <PrivateRoute>
-                    <MyServices />
+                    <ManageService />
                 </PrivateRoute>,
 
             },
             {
                 path: '/add-service',
-                element: <AddService />
+                element: <PrivateRoute> <AddService /></PrivateRoute>
 
             },
            
             {
                 path: '/schedules',
-                element: <Schedules />
+                element:<PrivateRoute> <Schedules /></PrivateRoute>
 
             },
             {
@@ -67,7 +68,7 @@ const Routes = createBrowserRouter([
     },
     {
         path: "/bookService/:id",
-        element: <BookService />
+        element:<PrivateRoute> <BookService /></PrivateRoute>
     },
 
     {

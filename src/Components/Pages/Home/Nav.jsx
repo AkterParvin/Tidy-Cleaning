@@ -31,9 +31,10 @@ const Nav = () => {
                 <li tabIndex={0} >
                     <details>
                         <summary> <Link to="/"> <button className=''>Dashboard</button></Link></summary>
-                        <ul className="p-1 bg-gray-100 text-xs font-bold text-[#33b097]">
+                        <ul className="p-1 bg-gray-100 text-xs font-semibold text-[#33b097]">
 
-                            <li><Link to='/my-services'>My-services</Link></li>
+                            <li><Link to='/manageservice'>
+                                Manage-services</Link></li>
                             <li>
                                 <Link to='/add-service'>
                                     Add-service</Link>

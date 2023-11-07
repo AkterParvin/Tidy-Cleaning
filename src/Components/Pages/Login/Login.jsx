@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider';
+import axios from 'axios';
 // import UseAuth from '../../Hooks/UseAuth';
 
 const Login = () => {
@@ -23,25 +24,21 @@ const Login = () => {
             .then(result => {
                 const loggeduser = result.user;
                 console.log(loggeduser);
-                if (loggeduser) {
-                    Swal.fire(
-                        'Login Successfull',
-                        'Please proceed to the page',
-                    )
-                    form.reset();
-                    navigate(location?.state ? location.state : '/');
-                }
-                // const user = { email };
-                // axios.post('https://car-doctor-server-gamma-three.vercel.app/jwt', user,
-                //     { withCredentials: true }
-                // )
-                // .then(data => {
-                //     console.log(data.data)
-                //     if (data.data.success) {
+                const user = { email };
+                axios.post('http://localhost:3000/jwt',user,{withCredentials:true})
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            Swal.fire(
+                                'Login Successfull',
+                                'Please proceed to the page',
+                            )
+                            form.reset();
+                            navigate(location?.state ? location.state : '/');
+                        }
 
-                //     }
-                // })
-                // 
+                })
+             
             })
             .catch(error => {
                 console.log(error.message);

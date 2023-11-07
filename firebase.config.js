@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAmjmTiiN7KOFn95bqrI82W7pccXeOfvJc",
-    authDomain: "food-and-taste-d6f3f.firebaseapp.com",
-    projectId: "food-and-taste-d6f3f",
-    storageBucket: "food-and-taste-d6f3f.appspot.com",
-    messagingSenderId: "800301303247",
-    appId: "1:800301303247:web:f19036be060e0f72ca3eba"
+    apiKey:import.meta.env.VITE_APIKEY,
+    authDomain:import.meta.env.VITE_AUTHDOMAIN,
+    projectId:import.meta.env.VITE_PROJECTID,
+    storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+    appId:import.meta.env.VITE_APPID,
 };
 // UwW9LqRmhlEvJpEC
 // parvinakter0190
