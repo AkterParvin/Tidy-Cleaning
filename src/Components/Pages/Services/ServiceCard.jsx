@@ -11,7 +11,7 @@ const ServiceCard = ({ item }) => {
     return (
         <div>
             <div className="flex flex-col max-w-lg p-6 
-            h-[80vh] space-y-5 overflow-hidden rounded-lg shadow-xl border dark:bg-gray-900 dark:text-gray-100 bg-teal-50">
+            h-[75vh] space-y-5 overflow-hidden rounded-lg shadow-xl border dark:bg-gray-900 dark:text-gray-100 bg-teal-50">
                 <div className='flex  '>
 
                     <div className="flex items-center space-x-4">

@@ -50,7 +50,7 @@ const AddService = () => {
             {/* <h2 className="text-3xl text-center font-bold">Add Services</h2>  */}
             <div className="my-8 md:my-14">
                 <section className="max-w-4xl p-8 md:px-32 mx-auto bg-[#F4F3F0] rounded-md shadow-md dark:bg-gray-800">
-                    <h2 className="text-4xl font-semibold text-gray-700 capitalize dark:text-white mt-10 mb-8 ">Add New Service</h2>
+                    <h2 className="text-4xl font-semibold text-gray-700 text-center capitalize dark:text-white mt-10 mb-8 ">Add New Service</h2>
                     <p className="text-lg text-gray-500 text-center mb-14">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                     {/* service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,_id */}
                     <form onSubmit={handleSubmit}>

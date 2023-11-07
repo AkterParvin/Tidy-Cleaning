@@ -19,7 +19,7 @@ const Services = () => {
         <div className="flex flex-col justify-center items-center">
             
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-3xl  mx-auto my-10 px-2">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl  mx-auto my-10 px-2">
 
                 {displayedService.map(item => <ServiceCard
                     key={item._id} item={item}></ServiceCard>)}

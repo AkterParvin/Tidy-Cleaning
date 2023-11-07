@@ -47,6 +47,11 @@ const Routes = createBrowserRouter([
                 </PrivateRoute>,
 
             },
+            {
+                path: '/add-service',
+                element: <AddService />
+
+            },
            
             {
                 path: '/schedules',
@@ -69,11 +74,7 @@ const Routes = createBrowserRouter([
         path: '/login',
         element: <Login />
     },
-    {
-        path: '/add-service',
-        element: <AddService />
-
-    },
+    
     {
         path: '/register',
         element: <Register />
