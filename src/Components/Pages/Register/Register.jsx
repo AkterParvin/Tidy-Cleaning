@@ -20,9 +20,10 @@ const Register = () => {
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
+        const photo = form.photo.value;
         const password = form.password.value;
         // const accepted = form.;
-        const newUser = { name, email, password };
+        const newUser = { name, email,photo, password };
         console.log(newUser);
         if (password.length < 6) {
             setError('Password must contain six characters');
@@ -51,20 +52,6 @@ const Register = () => {
                         'success'
                     )
                 }
-                // fetch('http://localhost:3000/users', {
-                //     method: "POST",
-                //     headers: {
-                //         'content-type': "application/json"
-                //     },
-                //     body: JSON.stringify(result.user),
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         console.log(data)
-                        
-                //     })
-
-
             })
             .catch(error => {
                 console.log(error.message);
@@ -124,6 +111,15 @@ const Register = () => {
                                 type="email"
                                 name='email'
                                 placeholder="Email"
+                                className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-sky-400 focus:ring-opacity-40 dark:focus:border-sky-300 focus:outline-none focus:ring focus:ring-sky-300" />
+                        </div>
+                        <div className="mt-2">
+                            <label className="block mb-1 text-sm font-semibold text-[#0073f7] dark:text-gray-200" htmlFor="LoggingEmailAddress">Photo Url</label>
+                            <input
+                                required
+                                type="text"
+                                name='photo'
+                                placeholder="User Photo"
                                 className="block w-full px-4 py-1 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-sky-400 focus:ring-opacity-40 dark:focus:border-sky-300 focus:outline-none focus:ring focus:ring-sky-300" />
                         </div>
 

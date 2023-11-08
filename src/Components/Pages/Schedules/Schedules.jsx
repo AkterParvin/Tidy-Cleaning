@@ -7,33 +7,35 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import BookingDetail from "../My-Services/BookingDetail";
 import PendingService from "./PendingService";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+// import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import axios from "axios";
 
 const Schedules = () => {
 
     // My Booking Related Function 
     const { newUser } = useContext(AuthContext);
     const [bookings, setBooking] = useState([]);
-    const axiosSecure = useAxiosSecure();
-    const url = `/bookings?email=${newUser?.email}`
+    
+    const url = `http://localhost:3000/bookings?email=${newUser?.email}`
     useEffect(() => {
-        axiosSecure.get(url)
+        axios.get(url,{withCredentials:true})
             .then(res => {
                 setBooking(res.data);
             })
-    }, [url, axiosSecure])
+    }, [url])
 
-    console.log(bookings);
+
 
     // My Pending Work Related Function 
     const [pendings, setPendings] = useState([]);
+    const url2 =`http://localhost:3000/bookings?provider_email=${newUser?.email}`
     useEffect(() => {
-        axiosSecure.get(`/bookings?provider_email=${newUser?.email}`)
+        axios.get(url2,{withCredentials:true})
             .then(res => {
                 setPendings(res.data);
             })
-    }, [newUser?.email,axiosSecure])
-
+    }, [url2])
+    console.log(pendings);
     const handleDelete = id => {
         Swal.fire({
             title: 'Are you sure?',
