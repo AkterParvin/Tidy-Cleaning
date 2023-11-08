@@ -19,22 +19,6 @@ const ServiceDetails = () => {
         provider_email, } = serviceDetail;
 
 
-    //     background - image: linear - gradient(
-    //         180deg,
-    //         hsl(164deg 7 % 29 %) 0 %,
-    //         hsl(162deg 5 % 41 %) 14 %,
-    //         hsl(160deg 4 % 53 %) 27 %,
-    //         hsl(158deg 5 % 65 %) 39 %,
-    //         hsl(156deg 7 % 78 %) 50 %,
-    //         hsl(154deg 17 % 92 %) 59 %,
-    //         hsl(159deg 37 % 91 %) 68 %,
-    //         hsl(163deg 54 % 90 %) 76 %,
-    //         hsl(167deg 67 % 88 %) 83 %,
-    //         hsl(170deg 78 % 87 %) 91 %,
-    //         hsl(174deg 87 % 85 %) 100 %
-    // );
-
-
 
     return (
         <div className="bg-gradient-to-t from-stone-200 via-gray-300 to-emerald-50 ">

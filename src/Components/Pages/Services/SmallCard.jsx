@@ -16,7 +16,7 @@ const SmallCard = ({item}) => {
                 <p className="py-2 items-center text-center">{ title}</p>
                 <div className="card-actions flex justify-center">
                     <Link to={`/servicedetail/${_id}`}>  <button className="p-2 btn btn-xs btn-accent text-center text-gray-800 hover:text-sky-700 font-semibold">
-                        View Details...
+                     Details...
                     </button></Link>
                    
                 </div>
