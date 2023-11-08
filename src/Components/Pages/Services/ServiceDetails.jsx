@@ -276,14 +276,13 @@ const ServiceDetails = () => {
                 </div>
             </section>
             <div className="my-10 bg-teal-50 py-6">
-                <h2 className="text-2xl my-7 text-center font-semibold text-teal-700">All Services</h2>
+                <h2 className="text-2xl my-7 text-center font-semibold text-teal-700">ALL SERVICES</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-6xl m-4">
 
                     {allService.map(item =>
                         <SmallCard
                             key={item._id}
                             item={item}
-
                         >
 
                         </SmallCard>)}
