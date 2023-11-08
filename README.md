@@ -1,8 +1,16 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Name: TidyAid (Cleaning Service)
+## Best Features Of This Project
 
-Currently, two official plugins are available:
+- user can see all services after clicking in the all service button
+- If a user wants to book a service he/she can book it with giving some indformation 
+- An user can also add his / her own service by adding information in the add service section/route
+- If any user booked his /her service ,then the ser can see all the services he/she booked along with all other pending services he/she have to complete
+- Service provider can also update any information of their service by edting through the edit/update service button on the manage service route.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+## 🔗 Links
+
+[[Project live link]](https://food-and-taste-d6f3f.web.app/)
+
