@@ -15,10 +15,10 @@ const Schedules = () => {
     // My Booking Related Function 
     const { newUser } = useContext(AuthContext);
     const [bookings, setBooking] = useState([]);
-    
-    const url = `http://localhost:3000/bookings?email=${newUser?.email}`
+
+    const url = `https://tidy-cleaning-server.vercel.app/bookings?email=${newUser?.email}`
     useEffect(() => {
-        axios.get(url,{withCredentials:true})
+        axios.get(url, { withCredentials: true })
             .then(res => {
                 setBooking(res.data);
             })
@@ -28,9 +28,9 @@ const Schedules = () => {
 
     // My Pending Work Related Function 
     const [pendings, setPendings] = useState([]);
-    const url2 =`http://localhost:3000/bookings?provider_email=${newUser?.email}`
+    const url2 = `https://tidy-cleaning-server.vercel.app/bookings?provider_email=${newUser?.email}`
     useEffect(() => {
-        axios.get(url2,{withCredentials:true})
+        axios.get(url2, { withCredentials: true })
             .then(res => {
                 setPendings(res.data);
             })
@@ -47,7 +47,7 @@ const Schedules = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/bookings/${id}`, {
+                fetch(`https://tidy-cleaning-server.vercel.app/bookings/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -83,7 +83,7 @@ const Schedules = () => {
     //         confirmButtonText: 'Yes, Confirm it!'
     //     }).then((result) => {
     //         if (result.isConfirmed) {
-    //             fetch(`http://localhost:3000/bookings/${id}`, {
+    //             fetch(`https://tidy-cleaning-server.vercel.app/bookings/${id}`, {
     //                 method: "PATCH",
     //                 headers: {
     //                     "content-type": "application/json"
@@ -121,7 +121,7 @@ const Schedules = () => {
         backgroundPosition: 'center',
         height: '100%',
         width: '100%',
-        
+
     };
     const backgroundUrl = 'https://i.imgur.com/SWXaDkU.png';
 
@@ -132,7 +132,7 @@ const Schedules = () => {
         backgroundPosition: 'center',
         height: '100%',
         width: '100%',
-        
+
     };
 
 
@@ -151,7 +151,7 @@ const Schedules = () => {
                                         key={item._id}
                                         item={item}
                                         handleDelete={handleDelete}
-                                      
+
                                     ></BookingDetail>)
                                 }
 

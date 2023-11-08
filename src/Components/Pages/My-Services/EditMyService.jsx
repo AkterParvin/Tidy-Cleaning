@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -39,7 +40,7 @@ const EditMyService = () => {
             service_name, service_img, title, description, provider_name, provider_email, provider_img, time, price, area, service_overview, thumbnail
         }
         console.log(newService);
-        axios.put(`http://localhost:3000/services/${_id}`, newService)
+        axios.put(`https://tidy-cleaning-server.vercel.app/services/${_id}`, newService)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
@@ -149,7 +150,7 @@ const EditMyService = () => {
                                     name="area"
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                             </div>
-                           {/* time  */}
+                            {/* time  */}
                             <div>
                                 <label className="text-gray-700 dark:text-gray-200 font-semibold text-sm" >Service Area</label>
                                 <input

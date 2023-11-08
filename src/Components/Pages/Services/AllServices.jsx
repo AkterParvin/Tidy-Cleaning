@@ -6,7 +6,7 @@ import Nav from "../Home/Nav";
 
 
 const AllServices = () => {
-    const url = 'http://localhost:3000/services';
+    const url = 'https://tidy-cleaning-server.vercel.app/services';
     const allService = UseAxios(url);
 
     const [searchQuery, setSearchQuery] = useState('');
@@ -78,20 +78,20 @@ const AllServices = () => {
                 </div>
             </div>
             <div className="mb-16 flex justify-center w-[70%] md:w-1/3 mx-auto ">
-                
+
                 <form onSubmit={handleSubmit} className="flex justify-center gap-2 w-full">
                     <input
                         className="w-full rounded-md "
                         type="text"
                         value={searchQuery}
                         name="searchQuery"
-                        onChange={e=>setSearchQuery(e.target.value)}
+                        onChange={e => setSearchQuery(e.target.value)}
                         placeholder="Serch service..."
                     />
                     {/* <button type="submit" className="rounded-md py-2 px-5 font-bold hover:bg-sky-700 hover bg-sky-200 ">Search</button> */}
-                    
+
                     <a href="#_" className="relative inline-flex items-center justify-center px-10 py-2 overflow-hidden font-mono  tracking-tighter text-white bg-gray-800 rounded-lg group hover:text-gray-700 font-bold">
-                        
+
                         <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-teal-300 rounded-full group-hover:w-56 group-hover:h-56"></span>
                         <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
                         <span className="relative">Search</span>

@@ -7,9 +7,20 @@ import ServiceBanner from "../Pages/Services/ServiceBanner";
 
 
 const Root = () => {
+    const backgroundImageUrl = 'https://i.imgur.com/fqpas5v.png';
+
+    const containerStyle = {
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: '100%',
+        width: '100%',
+
+    };
     const location = useLocation()
     return (
-        <div className="bg-teal-100">
+        <div style={containerStyle} className="bg-teal-100">
             <Nav />
             {location.pathname === '/' ? <> < Banner /></> :
                 <ServiceBanner />

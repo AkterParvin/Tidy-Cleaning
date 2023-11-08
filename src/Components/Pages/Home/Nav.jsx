@@ -66,7 +66,7 @@ const Nav = () => {
     // change nav color when scrolling 
     const [color, setColor] = useState(false);
     const changeColor = () => {
-        if (window.scrollY >= window.innerHeight * 0.3) {
+        if (window.scrollY >= window.innerHeight * 0.6) {
             setColor(true);
         } else {
             setColor(false);
@@ -82,7 +82,7 @@ const Nav = () => {
     }, []);
 
     return (
-        <div className={`${color ? "bg-teal-100 transform  " : "bg-stone-300 transform "
+        <div className={`${color ? "bg-teal-100 transform duration-1000 " : "bg-white transform duration-1000  "
             } sticky top-0 z-30 border-gray-200 dark:bg-gray-900 h-[80px] transition-all duration-300 navbar  ease-in-out`}>
             <div className="navbar max-w-6xl mx-auto">
                 <div className="navbar-start">

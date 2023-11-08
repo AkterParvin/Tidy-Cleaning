@@ -40,7 +40,7 @@ const Routes = createBrowserRouter([
             {
                 path: '/servicedetail/:id',
                 element: <PrivateRoute> <ServiceDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://tidy-cleaning-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/manageservice',
@@ -54,7 +54,7 @@ const Routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <EditMyService />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://tidy-cleaning-server.vercel.app/services/${params.id}`)
 
             },
             {
@@ -62,10 +62,10 @@ const Routes = createBrowserRouter([
                 element: <PrivateRoute> <AddService /></PrivateRoute>
 
             },
-           
+
             {
                 path: '/schedules',
-                element:<PrivateRoute> <Schedules /></PrivateRoute>
+                element: <PrivateRoute> <Schedules /></PrivateRoute>
 
             },
             {
@@ -77,14 +77,14 @@ const Routes = createBrowserRouter([
     },
     {
         path: "/bookService/:id",
-        element:<PrivateRoute> <BookService /></PrivateRoute>
+        element: <PrivateRoute> <BookService /></PrivateRoute>
     },
 
     {
         path: '/login',
         element: <Login />
     },
-    
+
     {
         path: '/register',
         element: <Register />

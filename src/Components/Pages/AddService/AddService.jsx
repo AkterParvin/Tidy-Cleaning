@@ -10,7 +10,7 @@ const AddService = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
-        
+
         const service_name = form.service_name.value;
         const service_img = form.service_img.value;
         const title = form.title.value;
@@ -23,12 +23,12 @@ const AddService = () => {
         const service_overview = form.service_overview.value;
         const time = "48 hours";
         const provider_email = userEmail;
-       
+
         const newService = {
-            service_name, service_img, title, description, provider_name, provider_email, provider_img,time, price, area,service_overview,thumbnail
+            service_name, service_img, title, description, provider_name, provider_email, provider_img, time, price, area, service_overview, thumbnail
         }
         console.log(newService);
-        axios.post('http://localhost:3000/services', newService)
+        axios.post('https://tidy-cleaning-server.vercel.app/services', newService)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -41,7 +41,7 @@ const AddService = () => {
                     })
                 }
                 form.reset();
-        })
+            })
     }
     // service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail, _id
 
@@ -92,7 +92,7 @@ const AddService = () => {
                             {/* {provider_name } */}
                             <div >
                                 <label className="text-gray-700 dark:text-gray-200 font-semibold text-sm" >Provider Name</label>
-                               
+
                                 <input
                                     type="text"
                                     placeholder="Provider Name"
@@ -146,10 +146,10 @@ const AddService = () => {
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                             </div>
 
-                           
+
                         </div>
 
-                        
+
                         <div className="flex flex-col justify-end mt-6 space-y-4">
                             <div className="flex flex-col">
                                 <label className="text-gray-700 dark:text-gray-200 text-left font-semibold text-sm text" >OverView Text</label>
@@ -169,8 +169,8 @@ const AddService = () => {
                                     placeholder="Service description "
                                 ></textarea>
                             </div>
-                            
-                            
+
+
                             {/* <input type="submit" value="Add Service"
                                 className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-[#D2B48C] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                             /> */}
@@ -183,7 +183,7 @@ const AddService = () => {
 
                                 </span>
                                 <span className="relative w-full text-center text-white transition-colors duration-200 ease-in-out group-hover:text-white">Add Service</span>
-                          </button>
+                            </button>
 
                         </div>
                     </form>

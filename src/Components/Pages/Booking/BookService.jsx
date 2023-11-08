@@ -35,7 +35,7 @@ const BookService = ({ serviceDetail }) => {
             service_id: _id
         }
         console.log(order);
-        const url = 'http://localhost:3000/bookings';
+        const url = 'https://tidy-cleaning-server.vercel.app/bookings';
         axios.post(url, order)
             .then(res => {
                 console.log(res.data);

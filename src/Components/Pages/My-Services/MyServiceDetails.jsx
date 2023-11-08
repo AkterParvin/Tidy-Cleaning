@@ -41,42 +41,6 @@ const MyServiceDetails = ({ item, handleDelete }) =>
                                 Edit Service
                             </button></Link>
 
-
-                            {/* <div>
-                               <button className="btn btn-xs btn-info"
-                                    onClick={() => document.getElementById('my_modal_5').showModal()}><BiEditAlt></BiEditAlt>
-                                    Edit Service</button>
-                                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                                    <div className="modal-box">
-                                        <h3 className="font-bold text-lg text-center text-teal-700 mb-2">Edit Service</h3>
-                                        <EditMyService
-                                        _id={_id}
-                                        ></EditMyService>
-                                        <div className="modal-action">
-                                            <form method="dialog">
-
-                                                <button className="btn btn-xs btn-success">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div> */}
-
-
-                            {/* <div onClick={() => handleUpdate(_id)} type="button" className="dropdown dropdown-bottom">
-                                <label tabIndex={0} className="flex m-1 btn btn-sm items-center bg-sky-100 border shadow-xl hover:bg-emerald-100 hover:border-emerald-500 border-sky-500 rounded px-2 py-1 pl-0 space-x-1">
-                                    <MdUpdate className=" text-green-700"></MdUpdate>
-                                    <span>Update Service</span>
-                                </label>
-                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><button onClick={() => handleStatusChange('Pending')}>Pending</button ></li>
-                                    <li><button onClick={() => handleStatusChange('In-Progress')}>In-Progress</button ></li>
-                                    <li><button onClick={() => handleStatusChange('Completed')}>Completed</button ></li>
-                                </ul>
-                            </div> */}
-                            {/*  */}
-
-
                         </div>
 
 
