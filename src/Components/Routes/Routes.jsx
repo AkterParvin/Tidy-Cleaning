@@ -14,6 +14,7 @@ import AllServices from "../Pages/Services/AllServices";
 import BookService from "../Pages/Booking/BookService";
 import PrivateRoute from "./PrivateRoute";
 import ManageService from "../Pages/My-Services/ManageService";
+import EditMyService from "../Pages/My-Services/EditMyService";
 
 // #cdfcf3
 
@@ -46,6 +47,14 @@ const Routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <ManageService />
                 </PrivateRoute>,
+
+            },
+            {
+                path: '/updateService/:id',
+                element: <PrivateRoute>
+                    <EditMyService />
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/services/${params.id}`)
 
             },
             {
