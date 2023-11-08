@@ -1,16 +1,20 @@
 /* eslint-disable no-unused-vars */
-import {  useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { AiTwotoneStar } from "react-icons/ai";
 import { BiSolidLocationPlus } from "react-icons/bi";
 import BookService from "../Booking/BookService";
+import UseAxios from "../../Hooks/useAxios";
+import SmallCard from "./smallCard";
 
 
 
 const ServiceDetails = () => {
-
+    const url = 'https://tidy-cleaning-server.vercel.app/services';
+    const allService = UseAxios(url);
+    console.log(allService);
 
     const serviceDetail = useLoaderData()
-    console.log(serviceDetail);
+    // console.log(serviceDetail);
     const { service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,
         provider_email, } = serviceDetail;
 
@@ -69,8 +73,8 @@ const ServiceDetails = () => {
                         <div className="flex items-center justify-between">
                             <div >
                                 <div>
-                                    <button className="btn" 
-                                    onClick={() => document.getElementById('my_modal_5').showModal()}>Book Service</button>
+                                    <button className="btn"
+                                        onClick={() => document.getElementById('my_modal_5').showModal()}>Book Service</button>
                                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                                         <div className="modal-box">
                                             <h3 className="font-bold text-lg text-center text-teal-700 mb-2">Book Now!</h3>
@@ -271,6 +275,20 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </section>
+            <div className="my-10 bg-teal-50 py-6">
+                <h2 className="text-2xl my-7 text-center font-semibold text-teal-700">All Services</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-6xl m-4">
+
+                    {allService.map(item =>
+                        <SmallCard
+                            key={item._id}
+                            item={item}
+
+                        >
+
+                        </SmallCard>)}
+                </div>
+            </div>
 
         </div>
     );

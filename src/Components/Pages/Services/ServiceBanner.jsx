@@ -28,7 +28,7 @@ const ServiceBanner = () => {
                         src="/vid.mp4"
                         loop
                         muted
-                        className="h-[60vh] w-screen object-cover transition-all duration-500 hover:scale-105 hover:opacity-75"
+                        className="h-[80vh] w-screen object-cover transition-all duration-500 hover:scale-105 hover:opacity-75"
                     />
                 </div>
 

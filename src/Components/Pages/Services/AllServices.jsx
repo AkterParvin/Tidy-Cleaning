@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import UseAxios from "../../Hooks/useAxios";
-import ServiceBanner from "./ServiceBanner";
+// import ServiceBanner from "./ServiceBanner";
 import ServiceCard from "./ServiceCard";
-import Nav from "../Home/Nav";
+// import Nav from "../Home/Nav";
 
 
 const AllServices = () => {
@@ -30,12 +30,6 @@ const AllServices = () => {
     }, [searchQuery, allService, filteredServices]);
     return (
         <div>
-            {/* <div>
-                <Nav/>
-            </div>
-            <div >
-                <ServiceBanner></ServiceBanner>
-            </div> */}
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="max-w-xl mb- md:mx-auto sm:text-center lg:max-w-2xl md:mb-8">
                     <div>
@@ -88,7 +82,7 @@ const AllServices = () => {
                         onChange={e => setSearchQuery(e.target.value)}
                         placeholder="Serch service..."
                     />
-                    {/* <button type="submit" className="rounded-md py-2 px-5 font-bold hover:bg-sky-700 hover bg-sky-200 ">Search</button> */}
+
 
                     <a href="#_" className="relative inline-flex items-center justify-center px-10 py-2 overflow-hidden font-mono  tracking-tighter text-white bg-gray-800 rounded-lg group hover:text-gray-700 font-bold">
 
@@ -100,12 +94,15 @@ const AllServices = () => {
             </div>
             <div>
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl  mx-auto my-10 px-2">
-                    {/* {
-                        filteredServices.length>0 ? setSearchQuery(filteredServices):setSearchQuery(allService)
-                    } */}
 
-                    {showService.map(item => <ServiceCard
-                        key={item._id} item={item}></ServiceCard>)}
+                    {showService.map(item =>
+                        <ServiceCard
+                            key={item._id}
+                            item={item}
+                     
+                        >
+
+                        </ServiceCard>)}
                 </div>
             </div>
         </div>

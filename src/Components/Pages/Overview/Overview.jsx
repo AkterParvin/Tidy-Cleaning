@@ -109,7 +109,7 @@ const Overview = () => {
                     </div>
                 </div>
             </div>
-
+            
             <div className="my-16 grid gap-10 lg:grid-cols-2">
                 <div className="flex items-center justify-center -mx-4 lg:pr-8">
                     <div className="flex flex-col items-end px-1 md:px-3">
@@ -213,6 +213,12 @@ const Overview = () => {
 
             </div>
 
+            <div className=" h-screen w-full bg-no-repeat bg-opacity-60 bg-cover bg-fixed flex items-center justify-center " style={{ backgroundImage: 'url(https://i.imgur.com/f83mfQV.png)' }}>
+
+                <h2 className="text-white font-bold z-50 text-5xl ">Book Service without hasitation</h2>
+                <div className="bg-gray-700/40 z-10 overflow-hidden  h-screen w-full absolute"></div>
+
+            </div>
 
             <div className="grid gap-10 lg:grid-cols-2">
 

@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-const ServiceCard = ({ item }) => {
+const ServiceCard = ({ item, allService }) => {
     
     const { service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,_id } = item;
    
     return (
         <div>
             <div className="flex flex-col max-w-lg p-6 
-            h-[75vh] space-y-5 overflow-hidden rounded-lg shadow-xl border dark:bg-gray-900 dark:text-gray-100 bg-teal-50">
+            h-[550px] space-y-5 overflow-hidden rounded-lg shadow-xl border dark:bg-gray-900 dark:text-gray-100 bg-teal-50">
                 <div className='flex  '>
 
                     <div className="flex items-center space-x-4">
@@ -45,12 +45,14 @@ const ServiceCard = ({ item }) => {
                     </div>
                 </div>
             </div>
+           
         </div>
     );
 };
 
 ServiceCard.propTypes = {
-    item: PropTypes.object
+    item: PropTypes.object,
+    allService:PropTypes.array
 }
 
 
