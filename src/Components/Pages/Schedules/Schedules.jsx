@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import BookingDetail from "../My-Services/BookingDetail";
 import PendingService from "./PendingService";
-// import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import axios from "axios";
+// // import useAxiosSecure from "../../Hooks/useAxiosSecure";
+// import axios from "axios";
 
 const Schedules = () => {
 
@@ -16,25 +16,52 @@ const Schedules = () => {
     const { newUser } = useContext(AuthContext);
     const [bookings, setBooking] = useState([]);
 
-    const url = `https://tidy-cleaning-server.vercel.app/bookings?email=${newUser?.email}`
+    const url = `https://tidy-cleaning-server.vercel.app/mybookings?email=${newUser?.email}`
     useEffect(() => {
-        axios.get(url, { withCredentials: true })
-            .then(res => {
-                setBooking(res.data);
+        // axios.get(url, { withCredentials: true })
+        //     .then(res => {
+        //         setBooking(res.data);
+        //     })
+        fetch(url, { credentials: 'include' }, {
+            method: "get",
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setBooking(data)
             })
+
     }, [url])
 
 
-
+    // fetch(`https://tidy-cleaning-server.vercel.app/services/${id}`,
+    //     { Credentials: 'include' }, {
+    //     method: "DELETE"
+    // },)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data);
     // My Pending Work Related Function 
     const [pendings, setPendings] = useState([]);
-    const url2 = `https://tidy-cleaning-server.vercel.app/bookings?provider_email=${newUser?.email}`
+    const url2 = `https://tidy-cleaning-server.vercel.app/pendingservices?provider_email=${newUser?.email}`
     useEffect(() => {
-        axios.get(url2, { withCredentials: true })
-            .then(res => {
-                setPendings(res.data);
+        // axios.get(url2, { withCredentials: true })
+        //     .then(res => {
+        //         setPendings(res.data);
+        //     })
+        fetch(url2, { credentials: 'include' }, {
+            method: "get",
+           
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setPendings(data);
             })
     }, [url2])
+
+
     console.log(pendings);
     const handleDelete = id => {
         Swal.fire({
@@ -47,7 +74,7 @@ const Schedules = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://tidy-cleaning-server.vercel.app/bookings/${id}`, {
+                fetch(`https://tidy-cleaning-server.vercel.app/bookings/${id}`, { credentials: "include" }, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

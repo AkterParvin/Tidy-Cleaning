@@ -19,7 +19,7 @@ const ManageService = () => {
   const [services, setServices] = useState([]);
   const url = `https://tidy-cleaning-server.vercel.app/services?provider_email=${newUser?.email}`
   useEffect(() => {
-    axios.get(url)
+    axios.get(url, { withCredentials: true })
       .then(res => {
         setServices(res.data);
       })
@@ -37,9 +37,10 @@ const ManageService = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://tidy-cleaning-server.vercel.app/services/${id}`, {
+        fetch(`https://tidy-cleaning-server.vercel.app/services/${id}`,
+          { Credentials: 'include' }, {
           method: "DELETE"
-        })
+        },)
           .then(res => res.json())
           .then(data => {
             console.log(data);
@@ -70,7 +71,7 @@ const ManageService = () => {
       confirmButtonText: 'Yes, Confirm it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://tidy-cleaning-server.vercel.app/services/${id}`, {
+        fetch(`https://tidy-cleaning-server.vercel.app/services/${id}`, { credentials: true }, {
           method: "PUT",
           headers: {
             "content-type": "application/json"

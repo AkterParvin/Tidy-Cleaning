@@ -14,7 +14,7 @@ const PendingService = ({ item, handleDelete, pendings, setBooking }) => {
     const handleUpdate = (id, newStatus) => {
         const updatedStatus = { status: newStatus }; // Create an object with the new status
 
-        fetch(`https://tidy-cleaning-server.vercel.app/bookings/${id}`, {
+        fetch(`https://tidy-cleaning-server.vercel.app/bookings/${id}`, { credentials: "include" }, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

@@ -40,7 +40,7 @@ const EditMyService = () => {
             service_name, service_img, title, description, provider_name, provider_email, provider_img, time, price, area, service_overview, thumbnail
         }
         console.log(newService);
-        axios.put(`https://tidy-cleaning-server.vercel.app/services/${_id}`, newService)
+        axios.put(`https://tidy-cleaning-server.vercel.app/services/${_id}`, newService, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
@@ -57,7 +57,7 @@ const EditMyService = () => {
     }
     return (
         <div>
-            {/* <h2 className="text-3xl text-center font-bold">Add Services</h2>  */}
+
             <div className="my-8 md:my-14">
                 <section className="max-w-4xl p-8 md:px-32 mx-auto bg-[#F4F3F0] rounded-md shadow-md dark:bg-gray-800">
                     <h2 className="text-4xl font-semibold text-gray-700 text-center capitalize dark:text-white mt-10 mb-8 ">Update A Service</h2>
@@ -218,156 +218,6 @@ const EditMyService = () => {
                 </section>
             </div>
         </div>
-        // <div className='max-w-4xl mx-auto bg-white px-'>
-        //     <h3 className="font-bold text-lg text-center text-teal-700 mb-2">Edit Service</h3>
-
-        //     <form onSubmit={handleSubmit}>
-        //         {/* service_name */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="service_name"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={service_name}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">service_name</label>
-        //         </div>
-        //         {/* service_img */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="service_img"
-
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={service_img}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Service Image</label>
-        //         </div>
-        //         {/* title */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="title"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={title}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Service Title</label>
-        //         </div>
-        //         {/* provider_img */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="provider_img"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={provider_img}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Provider Image</label>
-        //         </div>
-        //         {/* time */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="time"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={time}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Time Duration</label>
-        //         </div>
-
-        //         {/* price */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="price"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={price}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Service Price</label>
-        //         </div>
-
-        //         {/* area */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="area"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={area}
-        //             />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Service Area</label>
-        //         </div>
-
-        //         {/* description */}
-        //         {/* <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="description"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={description}
-        //                 required />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Special description</label>
-        //         </div> */}
-
-        //         {/* thumbnail */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="thumbnail"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={thumbnail}
-        //                 required />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Thumbnail image</label>
-        //         </div>
-
-        //         {/* description */}
-        //         <div className="flex flex-col  z-0 w-full mb-5 group">
-        //             <label className="text-gray-700 dark:text-gray-200 text-left font-semibold text-sm" >Service Description</label>
-        //             <textarea
-        //                 name="description"
-        //                 defaultValue={description}
-        //                 required cols="30" rows="2"
-        //                 placeholder="Service description "
-        //             ></textarea>
-        //         </div>
-        //         {/* service_overview */}
-        //         <div className=" z-0 w-full mb-5 group">
-        //             <input
-        //                 type="text"
-        //                 name="service_overview"
-        //                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                 defaultValue={service_overview}
-        //                 required />
-        //             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Service Overview</label>
-        //         </div>
-
-
-        //         <div className="grid md:grid-cols-2 md:gap-6">
-        //             {/* provider_name */}
-        //             <div className=" z-0 w-full mb-5 group">
-        //                 <input
-        //                     type="text"
-        //                     name="provider_name"
-        //                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                     defaultValue={provider_name}
-        //                 />
-        //                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Provider Name</label>
-        //             </div>
-        //             {/* provider_email */}
-        //             <div className=" z-0 w-full mb-5 group">
-        //                 <input
-        //                     type="email"
-        //                     name="provider_email"
-        //                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        //                     defaultValue={userEmail}
-        //                 />
-        //                 <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Service Provider email</label>
-        //             </div>
-
-        //         </div>
-
-        //         <button type="submit" className="text-white bg-emerald-500 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Service</button>
-        //     </form>
-
-        // </div>
 
     );
 };

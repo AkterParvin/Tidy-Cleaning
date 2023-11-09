@@ -99,7 +99,7 @@ const AllServices = () => {
                         <ServiceCard
                             key={item._id}
                             item={item}
-                     
+
                         >
 
                         </ServiceCard>)}

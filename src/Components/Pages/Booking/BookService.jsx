@@ -36,7 +36,7 @@ const BookService = ({ serviceDetail }) => {
         }
         console.log(order);
         const url = 'https://tidy-cleaning-server.vercel.app/bookings';
-        axios.post(url, order)
+        axios.post(url, order, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
