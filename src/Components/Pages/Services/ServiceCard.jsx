@@ -2,14 +2,14 @@
 import { MdLocationPin } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import { motion } from "framer-motion"
 
 const ServiceCard = ({ item, allService }) => {
     
     const { service_img, service_name, title, description, provider_name, provider_img, price, area, time, service_overview, thumbnail,_id } = item;
    
     return (
-        <div>
+        <motion.div animate={{ x: 100, scale: 1 }} initial={{ scale: 0 }} transition={{ type: "tween", duration: 3 }} >
             <div className="flex flex-col max-w-lg p-6 
             h-[550px] space-y-5 overflow-hidden rounded-lg shadow-xl border dark:bg-gray-900 dark:text-gray-100 bg-teal-50">
                 <div className='flex  '>
@@ -46,7 +46,7 @@ const ServiceCard = ({ item, allService }) => {
                 </div>
             </div>
            
-        </div>
+        </motion.div>
     );
 };
 
