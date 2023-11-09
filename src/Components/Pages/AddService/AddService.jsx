@@ -2,9 +2,16 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import { motion } from "framer-motion";
 
 const AddService = () => {
+    // const { scrollYProgress } = useScroll();
+
+    // const imageAnimation = {
+    //     x: 100,
+    //     scale: 1,
+        
+    // };
     const { newUser } = useContext(AuthContext);
     const userEmail = newUser?.email;
     const handleSubmit = e => {
@@ -195,15 +202,21 @@ const AddService = () => {
                         <h2 className="text-3xl font-bold tracki text-center sm:text-5xl dark:text-gray-50">Aliquip definiebas ad est</h2>
                         <p className="max-w-3xl mx-auto mt-4 text-xl text-center dark:text-gray-400">Quando cetero his ne, eum admodum sapientem ut.</p>
                     </div>
-                    <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img src="https://source.unsplash.com/640x480/?1" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
+                    <motion.div initial={{ scale: 0 }}
+                        animate={{ x: 100, scale: 1 }} className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+                        <img
+                           
+                            src="https://i.imgur.com/vDe56Xc.jpg" alt=""
+                            className="h-80 dark:bg-gray-500 aspect-video"
+                           
+                        />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400">Join, it is free</span>
                             <h3 className="text-3xl font-bold">Your One-Stop Shop for All Things Clean</h3>
                             <p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
                             <button type="button" className="self-start">Action</button>
                         </div>
-                    </div>
+                    </motion.div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
                         <img src="https://i.imgur.com/P0HDZpt.jpg" alt="" className="h-80 dark:bg-gray-500 aspect-video" />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">

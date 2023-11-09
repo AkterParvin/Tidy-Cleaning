@@ -8,6 +8,10 @@ import Team from "../Team/Team";
 const Home = () => {
     return (
         <div >
+            <div className="max-w-3xl mt-16 mx-auto text-center">
+                <h2 className="text-3xl font-extrabold sm:text-4xl">All the Services you want</h2>
+                <p className="mt-4 text-lg dark:text-gray-400">Pellentesque viverra, leo id euismod laoreet, nunc risus molestie orci, vel faucibus quam justo id mauris.</p>
+            </div>
             <Services/>
             <div className="my-8 mx-4">
                 <Team></Team>
